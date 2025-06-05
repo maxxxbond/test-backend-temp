@@ -31,6 +31,12 @@ jobs:
         run: |
           poetry install --no-interaction
 
+      - name: Create .env file
+        run: |
+          echo "SUPABASE_URL=${{ secrets.SUPABASE_URL }}" >> .env
+          echo "SUPABASE_KEY=${{ secrets.SUPABASE_KEY }}" >> .env
+          echo "BUNNYCDN_API_KEY=${{ secrets.BUNNYCDN_API_KEY }}" >> .env
+
       - name: Run tests with pytest
         run: |
           poetry run pytest -v tests/tests.py 

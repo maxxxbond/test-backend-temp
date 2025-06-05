@@ -29,7 +29,7 @@ class Settings(BaseSettings):
     ACCESS_TOKEN_EXPIRE_MINUTES: int = 30
     PORT: int = 8000
 
-    @field_validator("SUPABASE_URL", "SUPABASE_KEY", "SECRET_KEY", "BUNNYCDN_API_KEY", mode="before")
+    @field_validator("SUPABASE_URL", "SUPABASE_KEY", "BUNNYCDN_API_KEY", mode="before")
     @classmethod
     def check_required_fields(cls, v, info):
         if not v or str(v).strip() == "":
@@ -55,7 +55,7 @@ def validate_settings() -> Settings:
     Raises ValueError if any critical setting is missing.
     """
     critical_settings = [
-        "SUPABASE_URL", "SUPABASE_KEY", "SECRET_KEY", "BUNNYCDN_API_KEY"
+        "SUPABASE_URL", "SUPABASE_KEY", "BUNNYCDN_API_KEY"
     ]
     
     for setting in critical_settings:
