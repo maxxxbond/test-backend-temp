@@ -22,12 +22,6 @@ class Settings(BaseSettings):
     BUNNYCDN_API_KEY: str
     BUNNYCDN_STORAGE_ZONE: str = ''
     BUNNYCDN_PULL_ZONE: str = ''
-    
-    # Security settings
-    SECRET_KEY: str
-    ALGORITHM: str = "HS256"
-    ACCESS_TOKEN_EXPIRE_MINUTES: int = 30
-    PORT: int = 8000
 
     @field_validator("SUPABASE_URL", "SUPABASE_KEY", "BUNNYCDN_API_KEY", mode="before")
     @classmethod
